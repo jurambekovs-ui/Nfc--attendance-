@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFC Attendance System - University</title>
+    <title>NFC Attendance - Millad Umidi University</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -21,7 +21,7 @@
                         </svg>
                     </div>
                     <h1>NFC Attendance</h1>
-                    <p class="subtitle">Millad Umidi University attendance system</p>
+                    <p class="subtitle">Millad Umidi University Attendance System</p>
                 </div>
                 
                 <form id="loginForm" class="login-form">
@@ -39,19 +39,124 @@
                         <span class="spinner"></span>
                     </button>
                 </form>
-
-                <!-- DEMO CREDENTIALS REMOVED -->
             </div>
         </div>
     </div>
 
-    <!-- Dashboard Page (unchanged) -->
+    <!-- Dashboard Page -->
     <div id="dashboardPage" class="page">
-        <!-- ... same as before ... -->
+        <div class="background-gradient"></div>
+        <div class="dashboard-container">
+            <!-- Sidebar -->
+            <aside class="sidebar glass-card">
+                <div class="sidebar-header">
+                    <div class="logo-circle small">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>Millad Umidi</h2>
+                </div>
+                
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <span id="userInitial">U</span>
+                    </div>
+                    <div class="user-details">
+                        <p class="user-name" id="userName">User</p>
+                        <p class="user-role" id="userRole">Role</p>
+                    </div>
+                </div>
+                
+                <nav class="sidebar-nav">
+                    <button class="nav-item active" data-section="attendance">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5C15 6.10457 14.1046 7 13 7H11C9.89543 7 9 6.10457 9 5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Attendance</span>
+                    </button>
+                    
+                    <button class="nav-item" data-section="users" id="usersNavBtn" style="display: none;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Users</span>
+                    </button>
+                    
+                    <button class="nav-item logout-btn" id="logoutBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Logout</span>
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Live Uzbekistan Clock -->
+                <div class="live-clock">
+                    <span id="uzTime">11 Nov 2025 12:18:00 (UZ)</span>
+                </div>
+
+                <!-- Attendance Section -->
+                <section id="attendanceSection" class="content-section active">
+                    <div class="section-header">
+                        <div>
+                            <h2>Attendance Records</h2>
+                            <p class="section-subtitle">Real-time NFC attendance tracking</p>
+                        </div>
+                        <button class="btn-primary btn-nfc" id="tapNfcBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 8C20.2091 8 22 9.79086 22 12C22 14.2091 20.2091 16 18 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 8C17.3137 8 20 10.6863 20 14C20 17.3137 17.3137 20 14 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 8C14.4183 8 18 11.5817 18 16C18 20.4183 14.4183 24 10 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="6" cy="12" r="2" fill="currentColor"/>
+                            </svg>
+                            <span>Tap NFC Card</span>
+                        </button>
+                    </div>
+
+                    <!-- Stats & Table (unchanged) -->
+                    <div class="stats-grid"> ... </div>
+                    <div class="table-container glass-card"> ... </div>
+                </section>
+
+                <!-- Users Section (Admin Only) -->
+                <section id="usersSection" class="content-section">
+                    <div class="section-header">
+                        <div>
+                            <h2>User Management</h2>
+                            <p class="section-subtitle">Add and manage system users</p>
+                        </div>
+                        <button class="btn-primary" id="addUserBtn"> ... </button>
+                    </div>
+                    <div class="glass-card add-user-form" id="addUserForm" style="display: none;"> ... </div>
+                    <div class="users-grid" id="usersGrid"></div>
+                </section>
+
+                <!-- Student Overview -->
+                <div id="studentOverview" class="glass-card" style="display:none; margin-top: var(--spacing-md);">
+                    <h3>Your Attendance Overview</h3>
+                    <div id="studentOverviewContent"></div>
+                </div>
+            </main>
+        </div>
     </div>
 
-    <!-- Modals (unchanged) -->
-    <!-- ... -->
+    <!-- NFC Modal -->
+    <div class="modal" id="nfcModal"> ... </div>
+
+    <!-- Edit Attendance Modal -->
+    <div class="modal" id="editAttendanceModal"> ... </div>
 
     <script src="app.js"></script>
 </body>
